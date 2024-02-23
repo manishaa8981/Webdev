@@ -11,6 +11,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import HomeNavbar from "./homenavbar.tsx";
+// import {toast} from "react-toastify";
+// import {useNavigate} from "react-router-dom";
+// import {useEffect} from "react";
+// import { useSelector } from "react-redux";
+
 
 const defaultTheme = createTheme();
 const SignUp=() => {
@@ -22,6 +27,43 @@ const SignUp=() => {
             password: data.get('password'),
         });
     };
+//     const {
+//         register,
+//         handleSubmit,
+//         getValues,
+//         formState: { errors },
+//         reset,
+//     } = useForm();
+//
+//     const { isLoggedIn, isRegistering, errorSignup } = useSelector(
+//         (store: RootState) => store.auth
+//     );
+//     const navigate = useNavigate();
+//
+//     useEffect(() => {
+//         if (errorSignup) {
+//             reset({
+//                 signupName: "",
+//                 signupSurname: "",
+//                 signupPassword: "",
+//                 signupConfirm: "",
+//             });
+//         }
+//         if (isLoggedIn) {
+//             navigate(-1);
+//         }
+//     }, [errorSignup, isRegistering, isLoggedIn]);
+//     const onSubmit = async (data: INewUser) => {
+//         // dispatch(createUser(data));
+//         try {
+//             const response = await axios.post('http://localhost:8081/user/save', data);
+//             navigate('/login');
+//             console.log(response.data); // Handle response as needed
+//         } catch (error) {
+//             toast.error('User Registration Failed! Please try again.');
+//             console.error('Error creating user:', error);
+//         }
+//     };
 
     return (
         <>
@@ -45,27 +87,18 @@ const SignUp=() => {
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12} >
                                 <TextField
                                     autoComplete="given-name"
-                                    name="firstName"
+                                    name="fullname"
                                     required
                                     fullWidth
-                                    id="firstName"
-                                    label="First Name"
+                                    id="fullname"
+                                    label="Full Name"
                                     autoFocus
                                 />
                             </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="lastName"
-                                    label="Last Name"
-                                    name="lastName"
-                                    autoComplete="family-name"
-                                />
-                            </Grid>
+
                             <Grid item xs={12}>
                                 <TextField
                                     required

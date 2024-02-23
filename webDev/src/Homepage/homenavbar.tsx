@@ -7,7 +7,7 @@ const HomeNavbar = () => {
     return (
         <>
             <nav>
-                <a href={"/"} className={"title"}>The Candle Library</a>
+                <a href={"/carousel"} className={"title"}>The Candle Library</a>
 
                 <div className={"menu"} onClick={() => {
                     setMenuOpen(!menuOpen);
