@@ -1,83 +1,132 @@
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import "swiper/css/navigation";
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css/autoplay';
-import slider1 from '../assets/img_1.png';
-import slider2 from '../assets/img_2.png';
-import slider3 from '../assets/img_3.png';
-import slider4 from '../assets/img_4.png';
-import slider5 from '../assets/img_5.png';
+import * as React from 'react';
+import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import MobileStepper from '@mui/material/MobileStepper';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
 import HomeNavbar from "./homenavbar.tsx";
 
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+const images = [
+    {
+        label:"Bird",
+        imgPath:
+            'src/assets/img_1.png',
+    },
+    { label:"Bird",
+        imgPath:
+            'src/assets/img_3.png',
+    },
+    { label:"Bird",
+        imgPath:
+            'src/assets/img_5.png',
+    },
+    { label:"Bird",
+        imgPath:
+            'src/assets/img_3.png',
+    },
+];
+
 const Carousel=()=> {
-     const slideStyles = {
-         backgroundSize: 'cover',
-         backgroundRepeat: 'no-repeat',
-         backgroundPosition: '',
-         minHeight: '600px',
-     };
+    const theme = useTheme();
+    const [activeStep, setActiveStep] = React.useState(0);
+    const maxSteps = images.length;
+
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    };
+
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+
+    const handleStepChange = (step: number) => {
+        setActiveStep(step);
+    };
+
     return (
         <>
-            <HomeNavbar />
-            <div className="swiper-container">
-                <Swiper style={{height:600}}
-                    modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    autoplay={{delay: 4000}}
-                    navigation
-                    pagination={{clickable: true}}
-                    scrollbar={{draggable: true}}
+            <HomeNavbar/>
+            <Box sx={{ maxWidth: 1500, flexGrow: 1 }}>
+                <Paper
+                    square
+                    elevation={0}
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        height: 0,
+                        pl: 2,
+                        bgcolor: 'background.default',
+                        objectFit: 'cover'
+                    }}
                 >
-                    <SwiperSlide style={{...slideStyles, backgroundImage: `url(${slider1})`, height: '100%'}}>
-                        <div className="hero min-h-screen flex items-center justify-center">
-                            {/*<div className="text-white text-center">*/}
-                            {/*    <h1 className="text-6xl font-bold"><span className="text-[#82b041]">Abroad Dreams</span> is Where Your Journey Begins</h1>*/}
-                            {/*    <p className="py-6 text-xl">Start your journey in the world of abroad studies. Browse and Discover with Ease.</p>*/}
-                            {/*</div>*/}
+                    <Typography >{images[activeStep].label}</Typography>
+                </Paper>
+                <AutoPlaySwipeableViews
+                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    index={activeStep}
+                    onChangeIndex={handleStepChange}
+                    enableMouseEvents
+                >
+                    {images.map((step, index) => (
+                        <div key={step.label}>
+                            {Math.abs(activeStep - index) <= 2 ? (
+                                <Box
+                                    component="img"
+                                    sx={{
+                                        margin: 0,
+                                        height: 600,
+                                        display: 'block',
+                                        maxWidth: 1500,
+                                        overflow: 'hidden',
+                                        width: '100%',
+                                        objectFit: 'cover'
+                                    }}
+                                    src={step.imgPath}
+                                    // alt={step.label}
+                                />
+                            ) : null}
                         </div>
-                    </SwiperSlide>
-                    <SwiperSlide style={{...slideStyles, backgroundImage: `url(${slider2})`, height: '100%'}}>
-                        <div className="hero min-h-screen flex items-center justify-center">
-                            {/*<div className="text-white text-center">*/}
-                            {/*    <h1 className="text-6xl font-bold"><span className="text-[#82b041]">Abroad Dreams</span> is Your Passport to a World of Education</h1>*/}
-                            {/*    <p className="py-6 text-xl">Your One-Stop Solution for Managing Profiles Online.</p>*/}
-                            {/*</div>*/}
-                            <button className={"btn-style"}>
-                                View More
-                            </button>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide style={{...slideStyles, backgroundImage: `url(${slider3})`, height: '100%'}}>
-                        <div className="hero min-h-screen flex items-center justify-center">
-                            <div className="text-white text-center">
-                                <h1 className="text-6xl font-bold"><span className="text-[#82b041]">Abroad Dreams</span> is Your Key to the Career Aim of Tomorrow</h1>
-                                <p className="py-6 text-xl">Experience Modern Application Management.</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>  <SwiperSlide style={{...slideStyles, backgroundImage: `url(${slider4})`, height: '100%'}}>
-                    <div className="hero min-h-screen flex items-center justify-center">
-                        {/*<div className="text-white text-center">*/}
-                        {/*    <h1 className="text-6xl font-bold"><span className="text-[#82b041]">Abroad Dreams</span> is Your Key to the Career Aim of Tomorrow</h1>*/}
-                        {/*    <p className="py-6 text-xl">Experience Modern Application Management.</p>*/}
-                        {/*</div>*/}
-                    </div>
-                </SwiperSlide>  <SwiperSlide style={{...slideStyles, backgroundImage: `url(${slider5})`, height: '100%'}}>
-                    <div className="hero min-h-screen flex items-center justify-center">
-                        {/*<div className="text-white text-center">*/}
-                        {/*    <h1 className="text-6xl font-bold"><span className="text-[#82b041]">Abroad Dreams</span> is Your Key to the Career Aim of Tomorrow</h1>*/}
-                        {/*    <p className="py-6 text-xl">Experience Modern Application Management.</p>*/}
-                        {/*</div>*/}
-                    </div>
-                </SwiperSlide>
-                </Swiper>
-            </div>
-        </>
+                    ))}
+                </AutoPlaySwipeableViews>
+                <MobileStepper
+                    steps={maxSteps}
+                    position="static"
+                    activeStep={activeStep}
+                    nextButton={
+                        <Button
+                            size="small"
+                            onClick={handleNext}
+                            disabled={activeStep === maxSteps - 1}
+                        >
+                            Next
+                            {theme.direction === 'rtl' ? (
+                                <KeyboardArrowLeft />
+                            ) : (
+                                <KeyboardArrowRight />
+                            )}
+                        </Button>
+                    }
+                    backButton={
+                        <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                            {theme.direction === 'rtl' ? (
+                                <KeyboardArrowRight />
+                            ) : (
+                                <KeyboardArrowLeft />
+                            )}
+                            Back
+                        </Button>
+                    }
+                />
+            </Box></>
 
     );
- }
+}
 
-export default Carousel
+export default Carousel;
