@@ -10,6 +10,7 @@ import axios from "axios";
 import {CiEdit} from "react-icons/ci";
 import {MdDelete} from "react-icons/md";
 import {useForm} from "react-hook-form";
+import {toast} from "react-toastify";
 
 
 const AdminProduct = () =>  {
@@ -62,7 +63,7 @@ const AdminProduct = () =>  {
             console.log(payload)
             return axios.post("http://localhost:8080/product/save",payload)
         },onSuccess: () => {
-            // notify();
+            notify();
             reset();
             refetch();
         }
@@ -87,14 +88,19 @@ const AdminProduct = () =>  {
         }
     })
 
-    //Searching data
+    // const product = data || [];
+    // const filteredItemData = product.filter(product =>
+    //     product.productName.toLowerCase().includes(search.toLowerCase())
+    // );
+
+    // Searching data
     const filteredItemData = data?.data.filter((product) =>
         product.productName.toLowerCase().includes(search.toLowerCase()) ||
         product.id.toString().includes(search.toLowerCase()) ||
         product.category?.name.toLowerCase().includes(search.toLowerCase())
     );
 
-    console.log(filteredItemData)
+    console.log('Filtered::' , filteredItemData);
 
     const { data: categories } = useQuery({
         queryKey: ["GET_CATEGORIES"],
@@ -114,6 +120,18 @@ const AdminProduct = () =>  {
     )
 
     console.log(filteredItemData)
+
+    const notify = () => toast.success('Product Added Successfully', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light"
+    });
+    console.log('Before Return::', filteredItemData);
 
     return(
         <div>
