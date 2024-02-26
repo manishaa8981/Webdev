@@ -1,6 +1,7 @@
 package com.cosmetobackend.cosmeto.Controller;
 
 import com.cosmetobackend.cosmeto.Entity.User;
+import com.cosmetobackend.cosmeto.Pojo.NewPasswordPojo;
 import com.cosmetobackend.cosmeto.Pojo.UserPojo;
 import com.cosmetobackend.cosmeto.Service.UserService;
 import com.cosmetobackend.cosmeto.helper.ApiResponse;
@@ -51,4 +52,9 @@ public class UserController {
         return this.userService.getByEmail(email);
     }
 
+    @PostMapping("/new-password")
+    public String setNewPassword(@RequestBody NewPasswordPojo newPasswordPojo){
+        userService.setNewPassword(newPasswordPojo);
+        return "password changed";
+    }
 }

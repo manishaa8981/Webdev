@@ -474,3 +474,37 @@ nav .menu span{
         font-size: 6px;
     }
 }
+
+
+
+
+
+/* CSS/LoginSignup.css */
+
+.forgot-password-container {
+    background-color: #0057b33e; /* Set your preferred background color */
+    padding: 20px;
+    height: 60vw;
+}
+
+.forgot-password-container Form {
+    margin-top: 20px;
+}
+
+.forgot-password-container Form.Group {
+    margin-bottom: 20px;
+}
+
+.forgot-password-container p {
+    margin-top: 20px;
+}
+
+.forgot-password-container a {
+    color: #007bff; /* Set your preferred link color */
+}
+.footer {
+    background-color:white;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}

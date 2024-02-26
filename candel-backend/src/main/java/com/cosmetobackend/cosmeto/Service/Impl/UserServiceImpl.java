@@ -1,6 +1,7 @@
 package com.cosmetobackend.cosmeto.Service.Impl;
 
 import com.cosmetobackend.cosmeto.Entity.User;
+import com.cosmetobackend.cosmeto.Pojo.NewPasswordPojo;
 import com.cosmetobackend.cosmeto.Pojo.UserPojo;
 import com.cosmetobackend.cosmeto.Repo.UserRepository;
 import com.cosmetobackend.cosmeto.Service.UserService;
@@ -47,5 +48,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<User> getByEmail(String email){ return userRepository.findByEmail(email);}
+
+    @Override
+    public String setNewPassword(NewPasswordPojo newPasswordPojo) {
+        return null;
+    }
 
 }

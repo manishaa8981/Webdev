@@ -27,4 +27,7 @@ public class UserPojo {
 
     @NotNull
     private Integer contactNumber;
+
+    private String role;
+
 }
