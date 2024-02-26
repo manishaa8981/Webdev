@@ -1,3 +1,4 @@
+
 import "./category.css"
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,7 +16,7 @@ import {MdDelete} from "react-icons/md";
 
 const Category: React.FC = () =>  {
 
-    const[search, setSearch] = useState('');
+    const [search, setSearch] = useState('');
     const navigate = useNavigate();
 
     const location = useLocation(); // Use useLocation to get the current location
@@ -27,15 +28,6 @@ const Category: React.FC = () =>  {
         setModal(!modal1);
     };
 
-    if (modal1) {
-        document.body.classList.add('active-modal');
-    } else {
-        document.body.classList.remove('active-modal');
-    }
-
-
-
-    // GSAP cdn for animation
     useEffect(() => {
         if (modal1) {
             gsap.from(".add-category-modal", {
@@ -49,55 +41,67 @@ const Category: React.FC = () =>  {
 
     const useApiCall = useMutation({
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
-        mutationFn:(payload:any)=>{
-            console.log(payload)
-            return axios.post("http://localhost:8081/category/getAll",payload)
-        },onSuccess: () => {
+        mutationFn: async (payload:any) => {
+            try {
+                const response = await axios.post("http://localhost:8081/category/save", payload);
+                return response.data;
+            } catch (error) {
+                console.error("Error:", error);
+
+                throw error;
+            }
+        },
+        onSuccess: () => {
             notify();
             reset();
             refetch();
         }
-    })
+    });
 
-    const onSubmit=(value:any)=>{
-        useApiCall.mutate(value)
-    }
+    const onSubmit = (value:any) => {
+        useApiCall.mutate(value);
+    };
 
-
-    //hitting server on port 8081
-    const{register,
-        handleSubmit,
-        formState
-        ,reset}=useForm();
-
-    const{errors} = formState;
+    const {register, handleSubmit, formState, reset} = useForm();
+    const {errors} = formState;
 
     // Fetching data from API
-    const{data,refetch} = useQuery({
+    const {data, refetch} = useQuery({
         queryKey:["GETDATA"],
-        queryFn(){
-            return axios.get("http://localhost:8080/category/findAll")
+        queryFn: async () => {
+            try {
+                const response = await axios.get("http://localhost:8081/category/getAll");
+                return response.data;
+            } catch (error) {
+                console.error("Error:", error);
+                throw error;
+            }
         }
-    })
+    });
 
-    //Searching data
-    const filteredData = data?.data.filter((category) =>
+    console.log('Fetched Categories::', data);
+
+    const categories = data || [];
+    const filteredData = categories.filter(category =>
         category.name.toLowerCase().includes(search.toLowerCase())
     );
 
-    //Deleting data
-    const deleteByIdApi=useMutation(
-        {
-            mutationKey:["DELETE_BY_ID"],
-            mutationFn(id:number){
-                return axios.delete("http://localhost:8081/category/delete/"+id);
-            },onSuccess(){refetch()}
+    console.log('Filtered::', filteredData);
+
+    const deleteByIdApi = useMutation({
+        mutationKey:["DELETE_BY_ID"],
+        mutationFn: async (id:number) => {
+            try {
+                await axios.delete(`http://localhost:8081/category/delete/${id}`);
+                refetch();
+            } catch (error) {
+                console.error("Error:", error);
+                throw error;
+            }
         }
-    )
+    });
 
-
-    //Toast
-    const notify = () =>toast.success('Category Inserted Successfully', {
+    const notify = () => toast.success('Category Inserted Successfully', {
         position: "top-center",
         autoClose: 1000,
         hideProgressBar: false,
@@ -108,8 +112,10 @@ const Category: React.FC = () =>  {
         theme: "light"
     });
 
+    console.log('Before Return::', categories);
 
-    return(
+
+    return (
         <section>
             <div className={"manage-category-page"}>
                 <div className={"category-left"} >
@@ -133,9 +139,6 @@ const Category: React.FC = () =>  {
                             </div>
 
                             <div className={"table-container2"}>
-                                <div className={"card-header2"}>
-                                    <h2>Categories</h2>
-                                </div>
                                 <div className={"card-body2"}>
                                     <table className={"table-bordered2"}>
                                         <thead>
@@ -147,28 +150,31 @@ const Category: React.FC = () =>  {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {
-                                            filteredData?.map((i) =>{
-                                                return(
-                                                    <tr key={i?.id}>
-                                                        <td>{i?.id}</td>
-                                                        <td>{i?.name}</td>
-                                                        <td><button className={"edit-btn2"} onClick={()=>{
-                                                            navigate("/edit/"+i?.id);
-
-                                                            console.log(i?.id)
-                                                        }}><CiEdit /></button></td>
-                                                        <td><button className={"delete-btn2"} onClick={() => {
-                                                            // Display confirmation prompt before deletion
-                                                            if (window.confirm("Are you sure you want to delete this category?")) {
-                                                                deleteByIdApi.mutate(i?.id);
-                                                            }
-                                                        }}><MdDelete /></button></td>
-                                                    </tr>
-                                                )
-                                            })
-                                        }
+                                        {filteredData.map(category => (
+                                            <tr key={category.id}>
+                                                <td>{category.id}</td>
+                                                <td>{category.name}</td>
+                                                <td>
+                                                    <button className={"edit-btn2"} onClick={() => {
+                                                        navigate("/edit/" + category.id);
+                                                        console.log(category.id);
+                                                    }}>
+                                                        <CiEdit/>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button className={"delete-btn2"} onClick={() => {
+                                                        if (window.confirm("Are you sure you want to delete this category?")) {
+                                                            deleteByIdApi.mutate(category.id);
+                                                        }
+                                                    }}>
+                                                        <MdDelete/>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
                                         </tbody>
+
                                     </table>
                                 </div>
                             </div>
@@ -179,16 +185,16 @@ const Category: React.FC = () =>  {
             </div>
 
             {modal1 && (
-                <div className="add-category-modal" >
+                <div className="add-category-modal">
                     <div onClick={toggleCatgModal} className="add-category-overlay"></div>
                     <div className="add-category-modal-content">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <h2>Add Category</h2>
-                            <button className="close-add-category-btn"  onClick={() => {
+                            <button className="close-add-category-btn" onClick={() => {
                                 toggleCatgModal();
                                 reset(); // Reset the form
                             }}>
-                                <FaRegWindowClose />
+                                <FaRegWindowClose/>
                             </button>
                             <div className={"category-name1"}>
                                 <label>Category Name</label>
@@ -209,4 +215,4 @@ const Category: React.FC = () =>  {
     );
 };
 
-export default Category
+export default Category;

@@ -15,19 +15,18 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
     {
-        label:"Bird",
         imgPath:
             'src/assets/img_1.png',
     },
-    { label:"Bird",
+    {
         imgPath:
             'src/assets/img_3.png',
     },
-    { label:"Bird",
+    {
         imgPath:
             'src/assets/img_5.png',
     },
-    { label:"Bird",
+    {
         imgPath:
             'src/assets/img_3.png',
     },
@@ -52,7 +51,7 @@ const Carousel=()=> {
 
     return (
         <>
-            <HomeNavbar/>
+            {/*<HomeNavbar/>*/}
             <Box sx={{ maxWidth: 1500, flexGrow: 1 }}>
                 <Paper
                     square

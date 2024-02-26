@@ -203,7 +203,7 @@ const AdminProduct = () =>  {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className={"select-category"}>
                                 <label>Category</label>
-                                <select id={"category-option"} placeholder={""} {...register("categoryId", { required: true })}>
+                                <select id={"category-option"}{...register("categoryId", { required: true })}>
                                     <option>Select a Category</option>
                                     {categories &&
                                         categories.data.map((category) => (
@@ -244,3 +244,57 @@ const AdminProduct = () =>  {
 
 
 export default AdminProduct
+
+
+// import React from "react";
+// import { Container, Row, Col, Card } from "react-bootstrap";
+// import "./Popular.css";
+// import { useQuery } from "react-query";
+// import axios from "axios";
+// import {Link} from "react-router-dom";
+//
+//
+// const AdminProduct = () => {
+//     // Fetching data from API/get data
+//     const { data: productData, refetchh } = useQuery({
+//         queryKey: ["GET_DATA"],
+//         queryFn() {
+//             return axios.get("http://localhost:8081/product/getAll", {
+//                 headers: { authorization: "Bearer " + localStorage.getItem("token") },
+//             });
+//         },
+//     });
+//
+//     const filteredProductData = productData?.data.filter((product) =>
+//         product.name.toLowerCase()
+//     );
+//
+//     return (
+//         <Container className="popular">
+//             <h1>NEW CAFE ITEM</h1>
+//             <Row className="popular-items">
+//                 {filteredProductData &&
+//                     filteredProductData.map((product) => (
+//                         <Col key={product.id} xs={12} md={4} lg={3}>
+//                             <Card className="mb-3">
+//                                 <Card.Img
+//                                     variant="top"
+//                                     src={"data:image/jpeg;base64," + product.image}
+//                                 />
+//                                 <Card.Body>
+//                                     <Link to={`/product/${product.id}`}>{product.name}</Link>                                    <Card.Text>{product.productDescription}</Card.Text>
+//
+//                                     <Card.Text>
+//                                         Category: {product.category && product.category.name}
+//                                     </Card.Text>
+//                                     {/* Add any additional actions or buttons here */}
+//                                 </Card.Body>
+//                             </Card>
+//                         </Col>
+//                     ))}
+//             </Row>
+//         </Container>
+//     );
+// };
+//
+// export default AdminProduct;

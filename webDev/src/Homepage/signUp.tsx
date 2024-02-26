@@ -11,6 +11,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import HomeNavbar from "./homenavbar.tsx";
+// import {useForm} from "react-hook-form";
+// import {useMutation} from "@tanstack/react-query";
+// import axios from "axios";
+// import {useState} from "react";
+// import Form from "react-bootstrap/Form";
 // import * as axios from "axios";
 
 
@@ -18,14 +23,45 @@ import HomeNavbar from "./homenavbar.tsx";
 const defaultTheme = createTheme();
 
 const SignUp=() => {
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+    // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault();
+    //     const data = new FormData(event.currentTarget);
+    //     console.log({
+    //         email: data.get('email'),
+    //         password: data.get('password'),
+    //     });
+    // };
+    //
+    // const {
+    //     register,
+    //     handleSubmit,
+    //     formState,
+    //     reset
+    // }=useForm();
+    // const{errors}=formstate;
+    //
+    // const useSignApiCall=useMutation({
+    //     mutationKey:["add customer"],
+    //     mutationFn:(payload)=>{
+    //         console.log(payload)
+    //         return axios.post("http://localhost:8081/user/save" ,payload , {
+    //             headers:{authorization:"Bearer" + localStorage.getItem("token")}
+    //         })
+    //     }
+    //     ,onSuccess:()=>{
+    //         reset()
+    //     },
+    // })
+    //
+    // const onSubmit=(value)=>{
+    //     useSignApiCall.mutate(value,{onSuccess(){
+    //
+    //         }})
+    //     console.log(value);
+    // }
+    // const [username , setUsername]=useState('');
+    // const [email , setEmail]=useState('');
+    // const [password , setPassword]=useState('');
 
     return (
         <>
@@ -33,14 +69,7 @@ const SignUp=() => {
             <ThemeProvider theme={defaultTheme}>
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
-                    <Box
-                        sx={{
-                            marginTop: 8,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                        }}
-                    >
+                    <Box sx={{marginTop: 8,display: 'flex', flexDirection: 'column', alignItems: 'center',}}>
                         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                             <LockOutlinedIcon />
                         </Avatar>
@@ -50,40 +79,18 @@ const SignUp=() => {
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} >
-                                    <TextField
-                                        autoComplete="given-name"
-                                        name="firstName"
-                                        required
-                                        fullWidth
-                                        id="firstName"
-                                        label="Full Name"
-                                        autoFocus
-                                    />
+                                    <TextField  name="firstName" required fullWidth id="firstName" label="Full Name" autoFocus/>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <TextField
-                                        required
-                                        fullWidth
-                                        id="email"
-                                        label="Email Address"
-                                        name="email"
-                                        autoComplete="email"
-                                    />
+                                    <TextField required fullWidth id="email" label="Email Address" name="email" autoComplete="email"/>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <TextField
-                                        required
-                                        fullWidth
-                                        name="password"
-                                        label="Password"
-                                        type="password"
-                                        id="password"
-                                        autoComplete="new-password"
-                                    />
+                                    <TextField required fullWidth name="password" label="Password" type="password" id="password" autoComplete="new-password"/>
                                 </Grid>
                             </Grid>
                             <Button
                                 type="submit"
+                                onClick={onSubmit}
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}

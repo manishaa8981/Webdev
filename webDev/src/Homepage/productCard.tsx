@@ -1,101 +1,78 @@
-import * as React from 'react';
-import AspectRatio from '@mui/joy/AspectRatio';
-import Button from '@mui/joy/Button';
-import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
-import CardOverflow from '@mui/joy/CardOverflow';
-import Chip from '@mui/joy/Chip';
-import Link from '@mui/joy/Link';
-import Typography from '@mui/joy/Typography';
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import HomeNavbar from "./homenavbar.tsx";
-import List from '@mui/joy/List';
-import ListItem from '@mui/joy/ListItem';
-import ListSubheader from '@mui/joy/ListSubheader';
-import ListItemButton from '@mui/joy/ListItemButton';
-import Sheet from '@mui/joy/Sheet';
-import Carousel from "./carousel.tsx";
-import {Heart} from "lucide-react";
+import React, {useEffect, useState} from 'react';
+import './homenarbar.css'; // Import the CSS file containing the component styles
+import { Heart } from "lucide-react";
+import axios from "axios";
 
-const ProductCard=() => {
+const ProductCard = () => {
+
+    const [categories, setCategories] = useState([]);
+
+    const fetchCategories = async () => {
+        try {
+            const response = await axios.get('http://localhost:8081/category/getAll');
+            setCategories(response.data);
+            console.log('Fetched Categories:', response.data);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
+
+
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
     return (
         <>
-            {/*<HomeNavbar/>*/}
-            <Carousel/>
-          <div className={"body"}>
-              <div className={"category-list"}><Sheet
-                  variant="outlined"
-                  sx={{
-                      width: 320,
-                      maxHeight: 400,
-                      overflow: 'auto',
-                      borderRadius: 'sm',
-                  }}>
-                  <List>
-                      {[...Array(5)].map((_, categoryIndex) => (
-                          <ListItem nested key={categoryIndex}>
-                              <ListSubheader sticky>Category {categoryIndex + 1}</ListSubheader>
-                              <List>
-                                  {[...Array(10)].map((__, index) => (
-                                      <ListItem key={index}>
-                                          <ListItemButton>Subitem {index + 1}</ListItemButton>
-                                      </ListItem>
-                                  ))}
-                              </List>
-                          </ListItem>
-                      ))}
-                  </List>
-              </Sheet></div>
+            <h1 className="collection-heading">Our Collection</h1>
+            <h2 className="category-heading">Category</h2>
+            <div className="collection-body">
+                <div className="category-list">
+                    <div className="category-sheet">
+                        {/*<h1 className="category-heading">Category</h1>*/}
+                        <ul className="category-sublist">
+                            {Array.isArray(categories) && categories.length > 0 ? (
+                                categories.map((category) => (
+                                    <div key={category.id} className="category-item">
+                                        <div className="text-left">
+                                            <p className="">{category.name}</p>
 
-<div className={"product-list"}  style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-    {[...Array(4)].map((_, index) => (
-
-        <Card key={index} sx={{ width: 'calc(25% - 20px)', maxWidth: '100%', boxShadow: 'lg' }}>
-        <CardOverflow>
-            <AspectRatio sx={{ minWidth: 200 }}>
-                <img
-                    src="https://images.unsplash.com/photo-1593121925328-369cc8459c08?auto=format&fit=crop&w=286"
-                    srcSet="https://images.unsplash.com/photo-1593121925328-369cc8459c08?auto=format&fit=crop&w=286&dpr=2 2x"
-                    loading="lazy"
-                    alt=""
-                />
-            </AspectRatio>
-        </CardOverflow>
-        <CardContent>
-            <Typography level="body-xs">Bluetooth Headset</Typography>
-            <Link
-                href="#product-card"
-                fontWeight="md"
-                color="neutral"
-                textColor="text.primary"
-                overlay
-            >
-                Super Rockez A400
-            </Link>
-
-            <Typography
-                level="title-lg"
-                sx={{ mt: 1, fontWeight: 'xl' }}
-            >
-                2,900 THB
-            </Typography>
-
-        </CardContent>
-            <CardOverflow
-                style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row' , marginBottom:'2px'}}>
-                <Button variant="solid" color="danger" size="lg">
-                    Add to cart
-                </Button>
-                <div>
-                    <Heart/>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <div>No categories found</div>
+                            )}
+                        </ul>
+                    </div>
                 </div>
-            </CardOverflow>
-        </Card>
-    ))}
-</div>
-          </div>
-
+                <div className="product-list">
+                    {[...Array(5)].map((_, index) => (
+                        <div key={index} className="product-card">
+                            <div className="image-container">
+                                <img
+                                    className="product-image"
+                                    src={"https://images.pexels.com/photos/6634649/pexels-photo-6634649.jpeg?auto=compress&cs=tinysrgb&w=600"}
+                                    loading="lazy"
+                                    alt="Bluetooth Headset"
+                                />
+                            </div>
+                            <div className="product-details">
+                                <p className="product-name">Bluetooth Headset</p>
+                                <p className="product-price">2,900 THB</p>
+                            </div>
+                            <div className="product-actions">
+                                <button className="add-to-cart-button">Add to cart</button>
+                                <div className="heart-icon">
+                                    <Heart/>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </>
     );
 }
-export default ProductCard
+
+export default ProductCard;

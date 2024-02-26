@@ -4,6 +4,8 @@ import {Search, ShoppingBag} from 'lucide-react';
 import { useState} from "react";
 
 
+
+
 const HomeNavbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     return (
@@ -40,6 +42,9 @@ const HomeNavbar = () => {
                     </NavLink></li>
                 </ul>
             </nav>
+
+
+
         </>
     );
 };

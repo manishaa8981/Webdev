@@ -10,6 +10,11 @@ import Product from "./Dashboard/product.tsx";
 import Category from "./Dashboard/category.tsx";
 import ProductCard from "./Homepage/productCard.tsx";
 import Carousel from "./Homepage/carousel.tsx";
+import Home from "./Homepage/home.tsx";
+import Forget from "./Homepage/forget.tsx";
+import Reset from "./Homepage/reset.tsx";
+import EditCategory from "./Dashboard/editCategory.tsx";
+import Cart from "./Homepage/cart.tsx";
 
 const queryClient = new QueryClient();
 
@@ -20,14 +25,18 @@ function App() {
         <QueryClientProvider client={queryClient}>
             <RouterProvider router={createBrowserRouter([
 
-                {path: "/", element: <HomeNavbar/>},
+                {path: "/", element: <Home/>},
+                {path: "/homenavbar", element: <HomeNavbar/>},
                 {path: "/login", element: <Login/>},
                 {path: "/signup", element: <SignUp/>},
                 {path: "/category", element: <Category/>},
                 {path: "/product", element: <Product/>},
                 {path: "/productcard", element: <ProductCard/>},
-
                 {path: "/carousel", element: <Carousel/>},
+                {path: "/forget", element: <Forget/>},
+                {path: "/reset", element: <Reset/>},
+                {path: "/edit/:id", element: <EditCategory/>},
+                {path: "/cart", element: <Cart/>},
 
 
 

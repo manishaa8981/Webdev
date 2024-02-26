@@ -13,13 +13,17 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import HomeNavbar from "./homenavbar.tsx";
+import {useState} from "react";
+import Forget from "./forget.tsx";
+
 
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-const Login=() => {
+const Login =() => {
+    const[forget , setforget] =useState(false);
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -28,9 +32,12 @@ const Login=() => {
             password: data.get('password'),
         });
     };
+    const toggleforget = () =>{
+        setforget(!forget);
+    }
 
     return (
-        <>
+        <div>
             <HomeNavbar/>
             <ThemeProvider theme={defaultTheme}>
                 <Container component="main" maxWidth="xs">
@@ -84,7 +91,7 @@ const Login=() => {
                             </Button>
                             <Grid container>
                                 <Grid item xs>
-                                    <Link href="#" variant="body2">
+                                    <Link href="#" variant="body2" onClick={toggleforget}>
                                         Forgot password?
                                     </Link>
                                 </Grid>
@@ -97,7 +104,11 @@ const Login=() => {
                         </Box>
                     </Box>
                 </Container>
-            </ThemeProvider></>
+            </ThemeProvider>
+
+            {forget && <Forget/>}
+        </div>
+
 
     );
 }

@@ -3,13 +3,13 @@
     height: 100vh;
     top: 0; left: 0; right: 0; bottom: 0;
     position: fixed; z-index: 101;
-    background-color: #f1f5f9;
+    backdrop-filter: blur(10px);
 }
 .edit-category-modal-content {
     position: absolute; top: 45%; left: 55%; transform: translate(-50%, -50%);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     line-height: 1.4;
-    background: #e7e7e7;
+    background: transparent;
     padding: 14px 28px; border-radius: 10px;
     font-size: 1.1rem;
     width: 30vw;   height: 55vh;

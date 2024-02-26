@@ -1,5 +1,5 @@
 .manage-category-page{
-    background: rgba(213, 176, 136, 0.55);
+    background-color: #f1f5f9;
     overflow-x: hidden;
     min-height: 100vh;
     border-bottom-left-radius: 40px;
@@ -11,11 +11,11 @@
     display: flex;
     position: fixed;
     height: 10vh;
-    width: 82.2vw;
+    width: 80vw;
     align-items: center;
     margin-top: 4px;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 2.5rem;
     border-radius: 5px;
     border-bottom: 2px solid black;
     box-shadow: 10px 10px 10px -1px rgba(119, 111, 93, 0.52);
