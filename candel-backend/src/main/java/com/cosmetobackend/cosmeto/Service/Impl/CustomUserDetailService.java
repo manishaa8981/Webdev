@@ -1,5 +1,4 @@
 package com.cosmetobackend.cosmeto.Service.Impl;
-
 import com.cosmetobackend.cosmeto.Repo.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -12,10 +11,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CustomUserDetailService implements UserDetailsService {
 
-    private final UserRepository systemUserRepo;
+    private final UserRepository userRepository;
 
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return (UserDetails) this.systemUserRepo.findByEmail(username).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        return (UserDetails) this.userRepository.findByEmail(username).orElseThrow(() -> new EntityNotFoundException("User not found."));
     }
+
 }

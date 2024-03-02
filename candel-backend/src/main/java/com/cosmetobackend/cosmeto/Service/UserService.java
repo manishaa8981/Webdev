@@ -1,5 +1,4 @@
 package com.cosmetobackend.cosmeto.Service;
-
 import com.cosmetobackend.cosmeto.Entity.User;
 import com.cosmetobackend.cosmeto.Pojo.NewPasswordPojo;
 import com.cosmetobackend.cosmeto.Pojo.UserPojo;
@@ -16,7 +15,6 @@ public interface UserService {
     void deleteById(Long id);
 
     Optional<User> getById(Long id);
-
     Optional<User> getByEmail(String email);
     String setNewPassword(NewPasswordPojo newPasswordPojo);
 

@@ -38,7 +38,7 @@ public class ProductTest {
     @Test
     @Order(2)
     public void getById(){
-        Product product= productRepository.findById(1).get();
+        Product product= productRepository.findById(1L).get();
         Assertions.assertThat(product.getId()).isEqualTo(1);
     }
 
@@ -54,7 +54,7 @@ public class ProductTest {
     @Order(4)
     @Rollback(value = false)
     public void updateCategory(){
-        Product product = productRepository.findById(1).get();
+        Product product = productRepository.findById(1L).get();
         product.setProductName("Nepali Candle");
         Product productUpdated = productRepository.save(product);
 
@@ -65,10 +65,10 @@ public class ProductTest {
     @Order(5)
     @Rollback(value = false)
     public void deleteById(){
-        Product product = productRepository.findById(1).get();
+        Product product = productRepository.findById(1L).get();
         productRepository.deleteById(product.getId());
         Product product1 =null;
-        Optional<Product> optionalProduct = productRepository.findById(1);
+        Optional<Product> optionalProduct = productRepository.findById(1L);
         if(optionalProduct.isPresent()){
             product1 = optionalProduct.get();
         }

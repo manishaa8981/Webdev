@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bdf57274-58ae-4047-98cc-df6e51bc9cb3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/EmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/EmailServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/UserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/webConfig/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/AddProduct/AddProduct.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/AddProduct/AddProduct.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/AddProduct/EditCategory.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/AddProduct/EditCategoty.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/AdminNavBar/AdminNavBar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/AdminNavBar/AdminNavBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/Customer/ViewCustomer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/Customer/ViewCustomer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/ListProduct/ListProduct.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Admin/ListProduct/ListProduct.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Dashboard/user.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webDev/src/Dashboard/user.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/1.webp" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/1.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/10.webp" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/10.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/2.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/5.webp" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/5.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/6.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/6.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/7.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/7.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/8.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/8.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/9.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/9.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/DataStructure.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/WhatsApp Image 2024-01-29 at 10.50.11_7c210f30.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/dsa ques.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/dsa.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/pexels-ylanite-koppens-1809347.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/pexels-ylanite-koppens-1809347.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/Candel-Images/Images/ss7.png" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/Canvas-Images/Product-Images/ss7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/AuthenticateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/AuthenticateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/EmailCredential.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/EmailCredentials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/AuthenticateResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/CartPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/CartPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/CartUpdatePojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/CartUpdatePojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/CategoryPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/CategoryPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/EmailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/EmailRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/OrderPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/OrderPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/ProductPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/ProductPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/RolePojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/RolePojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/UserPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Pojo/UserPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/CartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/EmailCredentialRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/EmailCredentialRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Repo/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/AuthenticateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/AuthenticateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/AuthenticateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/AuthenticateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/CartServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/CustomUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/CustomUserDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/Impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/config/EmailConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/config/EmailConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/config/PasswordEncoderUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/config/PasswordEncoderUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/config/TemplateConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/config/TemplateConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/security/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/security/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/security/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/security/SpringSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/util/ImageToBase64.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/java/com/cosmetobackend/cosmeto/util/ImageToBase64.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/candel-backend/src/test/java/com/cosmetobackend/cosmeto/ProductTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/candel-backend/src/test/java/com/cosmetobackend/cosmeto/ProductTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Dashboard/category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Dashboard/category.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Dashboard/editCategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Dashboard/editCategory.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Dashboard/product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Dashboard/product.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Dashboard/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Dashboard/sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Homepage/carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Homepage/carousel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Homepage/cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Homepage/cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Homepage/homenarbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Homepage/homenarbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Homepage/homenavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Homepage/homenavbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Homepage/login-signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Homepage/login-signup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Homepage/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Homepage/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Homepage/productCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Homepage/productCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webDev/src/Homepage/signUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webDev/src/Homepage/signUp.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2d0YoE7yeNkGZ44u8o0ItEHterS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdf57274-58ae-4047-98cc-df6e51bc9cb3" name="Changes" comment="" />
+      <created>1709146636996</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709146636996</updated>
+      <workItem from="1709146640474" duration="4000" />
+    </task>
+    <servers />
+  </component>
+</project>

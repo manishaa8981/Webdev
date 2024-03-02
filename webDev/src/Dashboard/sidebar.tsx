@@ -4,6 +4,7 @@ import { BiSolidCategoryAlt} from "react-icons/bi";
 import {IoMdLogOut} from "react-icons/io";
 import {FaBowlFood} from "react-icons/fa6";
 import {Link} from "react-router-dom"
+import {FaUserCog} from "react-icons/fa";
 // import {FaUserCog} from "react-icons/fa";
 // import {IoNewspaper} from "react-icons/io5";
 interface AdminSidebarProps {
@@ -25,12 +26,12 @@ const SidebarMenu: React.FC<AdminSidebarProps>=({ activePage }) => {
                             {/*        <a>Dashboard</a>*/}
                             {/*    </li>*/}
                             {/*</Link>*/}
-                            {/*<Link to={"/customer"}>*/}
-                            {/*    <li className={`sidebar-list-item ${activePage === "/customer" ? "active" : ""}`}>*/}
-                            {/*        <span><FaUserCog style={{fontSize:"18px",marginBottom:"-3px"}}/></span>*/}
-                            {/*        <a>Customers</a>*/}
-                            {/*    </li>*/}
-                            {/*</Link>*/}
+                            <Link to={"/user"}>
+                                <li className={`sidebar-list-item ${activePage === "/user" ? "active" : ""}`}>
+                                    <span><FaUserCog style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
+                                    <a>Users</a>
+                                </li>
+                            </Link>
                             <Link to={"/category"}>
                                 <li className={`sidebar-list-item ${activePage === "/category" ? "active" : ""}`}>
                                     <span><BiSolidCategoryAlt style={{fontSize:"18px",marginBottom:"-3px"}}/></span>

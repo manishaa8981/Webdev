@@ -1,4 +1,3 @@
-
 import "./category.css"
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
@@ -79,14 +78,13 @@ const Category: React.FC = () =>  {
         }
     });
 
-    console.log('Fetched Categories::', data);
+    // console.log('Fetched Categories::', data);
 
     const categories = data || [];
     const filteredData = categories.filter(category =>
         category.name.toLowerCase().includes(search.toLowerCase())
     );
 
-    console.log('Filtered::', filteredData);
 
     const deleteByIdApi = useMutation({
         mutationKey:["DELETE_BY_ID"],

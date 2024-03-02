@@ -1,18 +1,35 @@
-import React, { useState } from 'react';
 import HomeNavbar from "./homenavbar.tsx";
-import Forget from "./forget.tsx";
+import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { Form } from "react-bootstrap";
 import "./login-signup.css"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [forget, setForget] = useState(false);
+    const navigate = useNavigate();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const email = formData.get('email');
-        const password = formData.get('password');
-        console.log({ email, password });
-        // Add your login logic here
+    const useSignApiCall = useMutation({
+        mutationKey: ["add customer"],
+        mutationFn: async (payload) => {
+            try {
+                const response = await axios.post("http://localhost:8081/authenticate", payload);
+                const token = response.data.token;
+                localStorage.setItem('token', token);
+                navigate('/'); // Navigate to homepage after successful login
+                reset(); // Clear form fields
+            } catch (error) {
+                console.error('Login error:', error);
+                // Handle login error here (e.g., display error message)
+            }
+        }
+    });
+
+    const onSubmit = (data) => {
+        useSignApiCall.mutate(data);
     };
 
     const toggleForget = () => {
@@ -20,39 +37,41 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <>
             <HomeNavbar />
-            <form onSubmit={handleSubmit}>
-                <div style={{ marginTop: '8px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <h1>Sign in</h1>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+                <div style={{marginTop: '8px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <h1>Sign In</h1>
+
                     <input
                         type="email"
-                        name="email"
                         placeholder="Email Address"
-                        required
-                        autoFocus
+                        {...register("email", { required: true })}
                     />
+                    {errors?.password?.message}
+                    {errors.email && <span>Email is required</span>}
                     <input
                         type="password"
-                        name="password"
                         placeholder="Password"
-                        required
+                        {...register("password", { required: true })}
                     />
-                    <label>
-                        <input type="checkbox" value="remember" />
-                        Remember me
-                    </label>
-                    <button type="submit">Sign In</button>
-                    <div>
-                        <a href="#" onClick={toggleForget}>Forgot password?</a>
+                    {errors?.password?.message}
+                    {errors.password && <span>Password is required</span>}
+                    <div className={"remember-forgot"}>
+                        <label><input type={"checkbox"} /> Remember me</label>
                     </div>
-                    <div>
-                        <a href="/signup">Don't have an account? Sign Up</a>
+                    <button className={"sign-in-button"} type="submit">Sign In</button>
+                    <div className={"for-sig"}>
+                        <div>
+                            <a href="/forget" onClick={toggleForget}>Forgot password?</a>
+                        </div>
+                        <div>
+                            <a href="/signup">Don't have an account? Sign Up</a>
+                        </div>
                     </div>
                 </div>
-            </form>
-            {forget && <Forget />}
-        </div>
+            </Form>
+        </>
     );
 }
 

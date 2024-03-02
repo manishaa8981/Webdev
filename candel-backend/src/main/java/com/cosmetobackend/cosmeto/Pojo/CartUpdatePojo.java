@@ -1,5 +1,6 @@
 package com.cosmetobackend.cosmeto.Pojo;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,3 +10,4 @@ public class CartUpdatePojo {
     private Long id;
     private Integer quantity;
 }
+

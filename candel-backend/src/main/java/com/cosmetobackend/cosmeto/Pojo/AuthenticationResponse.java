@@ -1,5 +1,6 @@
 package com.cosmetobackend.cosmeto.Pojo;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,11 +10,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticateResponse {
+public class AuthenticationResponse {
 
     private String token;
-    private Long userId;
-    private String email;
+    private Long id;
+    private String role;
 
 
 }

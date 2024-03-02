@@ -6,13 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="email_credentials")
-public class EmailCredential {
+public class EmailCredentials {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Email_Seq_GEN")
     @SequenceGenerator(name = "Email_Seq_GEN", sequenceName = "Email_Seq", initialValue = 1,
@@ -28,4 +27,3 @@ public class EmailCredential {
     private String protocol;
 
 }
-

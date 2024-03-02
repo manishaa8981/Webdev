@@ -88,8 +88,8 @@ button:hover{
     height: 9vh;
     width: 100%;
     display: flex;
-    justify-content: right;
-    padding-right: 3.6rem;
+    justify-content: left;
+    padding-right: 0;
 }
 
 
@@ -212,4 +212,26 @@ body.active-modal {
     font-size: 1rem;
     font-weight: bold;
     padding: 1.2rem 0;
+}
+table-bordered2 tbody{
+    padding: 1.2rem 0;
+}
+
+
+/*product*/
+.add-categor-modal, .add-categor-overlay {
+    width: 100vw; height: 100vh; top: 0; left: 0; right: 0;
+    bottom: 0; position: fixed; z-index: 101;
+    backdrop-filter: blur(10px);
+}
+.add-categor-modal-content {
+    position: absolute; top: 45%; left: 55%;
+    transform: translate(-50%, -50%); line-height: 1.4;
+    background: transparent;
+    border: black solid 2px;
+    padding: 14px 28px; border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    width: 20vw;   height: 70vh;
+    z-index: 109;
 }

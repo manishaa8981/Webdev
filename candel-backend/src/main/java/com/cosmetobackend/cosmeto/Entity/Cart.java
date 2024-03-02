@@ -4,26 +4,32 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name="carts")
+import java.util.HashSet;
+import java.util.Set;
+@Table(name="cart")
 @Getter
 @Setter
+@Entity
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "orders_seq_gen", sequenceName = "orders_id_seq", allocationSize = 1)
+    @GeneratedValue(generator = "orders_seq_gen", strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name="product_id",unique = true)
-    private Product product;
+    @Column(name="quantity", nullable=false)
+    private int quantity;
 
     @Column(name="total_price")
     private Integer total_price;
 
-    @Column(name="quantity")
-    private Integer quantity;
+   @ManyToOne
+    @JoinColumn(name = "product_id",unique = true)
+    private Product product;
+
+
+
 }

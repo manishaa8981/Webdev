@@ -1,5 +1,4 @@
 package com.cosmetobackend.cosmeto.Controller;
-
 import com.cosmetobackend.cosmeto.Entity.User;
 import com.cosmetobackend.cosmeto.Pojo.NewPasswordPojo;
 import com.cosmetobackend.cosmeto.Pojo.UserPojo;
@@ -14,9 +13,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
+//@CrossOrigin("*")
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -24,31 +23,28 @@ public class UserController {
     private final ApiResponse apiResponse;
 
     @PostMapping("/save")
-    public ResponseEntity<Map<String, Object>> save(@Valid @RequestBody UserPojo userPojo){
-
-        return apiResponse.successResponse("Data Saved Successfully",true,null,userService.save(userPojo));
-
-//        userService.save(userPojo);
-//        return "Register successfully";
+    public ResponseEntity<Map<String, Object>> save( @RequestBody UserPojo userPojo){
+        return apiResponse.successResponse("Data saved successfully", true, null, userService.save(userPojo));
     }
 
     @GetMapping("/getAll")
     public List<User> getAll(){
+
         return this.userService.getAll();
     }
 
     @GetMapping("/getById/{id}")
     public Optional<User> getById(@PathVariable("id") Long id){
+
         return this.userService.getById(id);
     }
-
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public void deleteById(@PathVariable("id") Long id){
         this.userService.deleteById(id);
     }
 
     @GetMapping("/getByEmail/{email}")
-        public Optional<User> getByEmail(@PathVariable("email") String email){
+    public Optional<User> getByEmail(@PathVariable("email") String email) {
         return this.userService.getByEmail(email);
     }
 
@@ -57,4 +53,5 @@ public class UserController {
         userService.setNewPassword(newPasswordPojo);
         return "password changed";
     }
+
 }

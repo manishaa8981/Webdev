@@ -25,9 +25,8 @@ public class UserPojo {
     @NotNull
     private String email;
 
-    @NotNull
-    private Integer contactNumber;
-
     private String role;
 
+    @NotNull
+    private Long contactNumber;
 }

@@ -3,13 +3,11 @@ import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MobileStepper from '@mui/material/MobileStepper';
 import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import HomeNavbar from "./homenavbar.tsx";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -51,7 +49,6 @@ const Carousel=()=> {
 
     return (
         <>
-            {/*<HomeNavbar/>*/}
             <Box sx={{ maxWidth: 1500, flexGrow: 1 }}>
                 <Paper
                     square
@@ -62,11 +59,12 @@ const Carousel=()=> {
                         height: 0,
                         pl: 2,
                         bgcolor: 'background.default',
-                        objectFit: 'cover'
+                        objectFit: 'cover',
+                        marginTop:-7,
                     }}
                 >
-                    <Typography >{images[activeStep].label}</Typography>
                 </Paper>
+                {/*<Typography >{images[activeStep].label}</Typography>*/}
                 <AutoPlaySwipeableViews
                     axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                     index={activeStep}
@@ -80,7 +78,7 @@ const Carousel=()=> {
                                     component="img"
                                     sx={{
                                         margin: 0,
-                                        height: 600,
+                                        height: 400,
                                         display: 'block',
                                         maxWidth: 1500,
                                         overflow: 'hidden',

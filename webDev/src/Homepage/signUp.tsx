@@ -1,53 +1,71 @@
-import React from 'react';
 import HomeNavbar from "./homenavbar.tsx";
+import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { Form } from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 const SignUp = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const firstName = formData.get('firstName');
-        const email = formData.get('email');
-        const password = formData.get('password');
-        console.log({ firstName, email, password });
-        // Add your sign up logic here
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const navigate = useNavigate();
+
+    const useSignApiCall = useMutation({
+        mutationKey: ["add customer"],
+        mutationFn: (payload) => {
+            console.log(payload);
+            return axios.post("http://localhost:8081/user/save", payload); // Include payload in the request
+        },
+
+        onSuccess: () => {
+            reset();
+            navigate('/')
+        },
+    });
+
+    const onSubmit = (data, event) => {
+        event.preventDefault(); // Prevent default form submission
+        useSignApiCall.mutate(data); // Trigger the mutation
+        console.log(data);
     };
 
     return (
         <>
             <HomeNavbar />
-            <form onSubmit={handleSubmit}>
-                <div style={{ marginTop: '8px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+                <div style={{marginTop: '8px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                     <h1>Sign up</h1>
                     <input
                         type="text"
-                        name="firstName"
                         placeholder="Full Name"
                         required
                         autoFocus
+                        {...register("username", {required: true})}
                     />
+                    {errors.username && <span>Username is required</span>}
                     <input
                         type="email"
-                        name="email"
                         placeholder="Email Address"
-                        required
+                        {...register("email", {required: true})}
+                    />
+                    {errors.email && <span>Email is required</span>}
+                    <input
+                        type="text"
+                        placeholder="Contact Number"
+                        {...register("contactNumber", {required: true})}
                     />
                     <input
                         type="password"
-                        name="password"
                         placeholder="Password"
-                        required
-                    /><input
-                        type="password"
-                        name="password"
-                        placeholder="Confirm Password"
-                        required
+                        {...register("password", {required: true})}
                     />
+                    {errors.password && <span>Password is required</span>}
                     <button type="submit">Sign Up</button>
+                    {/* Remove onSubmit={} from here */}
                     <div>
                         <a href="/login">Already have an account? Sign in</a>
                     </div>
                 </div>
-            </form>
+            </Form>
         </>
     );
 }

@@ -1,5 +1,6 @@
 package com.cosmetobackend.cosmeto.Repo;
 
+
 import com.cosmetobackend.cosmeto.Entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 

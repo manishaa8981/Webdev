@@ -1,10 +1,6 @@
 package com.cosmetobackend.cosmeto.Pojo;
-
-
-import jakarta.persistence.JoinColumn;
-import jakarta.validation.constraints.NotEmpty;
+;
 import jakarta.validation.constraints.NotNull;
-import jdk.jfr.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,22 +12,23 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductPojo {
-    private Integer id;
-
-    @NotEmpty
-    private String productName;
-
-    @NotEmpty
-    private String productDescription;
-
-    @NotEmpty
-    private Integer productPrice;
-
-    //    @NotEmpty
-    private MultipartFile productImage;
+    private Long id;
 
     @NotNull
-    private Integer category;
+    private String name;
+
+    @NotNull
+    private String productDescription;
+
+    @NotNull
+    private Integer old_price;
+
+    @NotNull
+    private Integer new_price;
+
+    private MultipartFile image;
+
+    private Long category;
 
 
 }

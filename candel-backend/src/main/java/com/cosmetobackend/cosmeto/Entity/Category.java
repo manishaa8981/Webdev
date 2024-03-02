@@ -2,18 +2,15 @@ package com.cosmetobackend.cosmeto.Entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
+@SuppressWarnings("JpaAttributeTypeInspection")
 @Entity
 @Table(name="category")
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @Setter
 public class Category {
     @Id

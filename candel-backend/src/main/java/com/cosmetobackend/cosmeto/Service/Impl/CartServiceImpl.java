@@ -1,5 +1,4 @@
 package com.cosmetobackend.cosmeto.Service.Impl;
-
 import com.cosmetobackend.cosmeto.Entity.Cart;
 import com.cosmetobackend.cosmeto.Entity.Product;
 import com.cosmetobackend.cosmeto.Entity.User;
@@ -16,22 +15,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+
 @Service
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
+
     private final CartRepository cartRepository;
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
 
     @Override
-    public void saveCart(CartPojo cartPojo){
-        Cart cart=new Cart();
+    public void saveCart(CartPojo cartPojo) {
+        Cart cart;
 
-        if(cartPojo.getId()!=null){
-            cart=cartRepository.findById(cartPojo.getId()).get();
+        if (cartPojo.getId() != null) {
+            cart = cartRepository.findById(cartPojo.getId())
+                    .orElseThrow(() -> new EntityNotFoundException("Cart not found with ID: " + cartPojo.getId()));
+        } else {
+            cart = new Cart();
         }
 
-        cart.setId(cartPojo.getId());
         cart.setTotal_price(cartPojo.getTotal_price());
         cart.setQuantity(cartPojo.getQuantity());
 
@@ -39,13 +42,14 @@ public class CartServiceImpl implements CartService {
                 .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + cartPojo.getUserId()));
         cart.setUser(user);
 
-        Product product = productRepository.findById(cartPojo.getProductId())
+        Product product = productRepository.findById((cartPojo.getProductId()))
                 .orElseThrow(() -> new EntityNotFoundException("Item not found with ID: " + cartPojo.getProductId()));
         cart.setProduct(product);
 
         cartRepository.save(cart);
         System.out.println("Cart saved");
     }
+
     @Override
     public List<Cart> getAll() {
         return cartRepository.findAll();
@@ -54,6 +58,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public void deleteById(Long id) {cartRepository.deleteById(id);
     }
+
     @Override
     public void updateQuantity(@PathVariable Long id, @RequestParam("newQuantity") Integer newQuantity) {
         Cart cartItem = cartRepository.findById(id)
@@ -62,3 +67,5 @@ public class CartServiceImpl implements CartService {
         cartRepository.save(cartItem);
     }
 }
+
+

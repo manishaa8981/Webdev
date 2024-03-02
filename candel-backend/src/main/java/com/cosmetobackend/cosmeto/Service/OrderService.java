@@ -1,6 +1,4 @@
 package com.cosmetobackend.cosmeto.Service;
-
-
 import com.cosmetobackend.cosmeto.Entity.Order;
 import com.cosmetobackend.cosmeto.Pojo.OrderPojo;
 
@@ -9,13 +7,16 @@ import java.util.Optional;
 
 public interface OrderService {
 
-    void save(OrderPojo orderPojo);
+    String save(OrderPojo orderpojo);
+
 
     List<Order> getAll();
 
+
+    Optional<Order> findById(Long id);
+
     void deleteById(Long id);
 
-    Optional<Order> getById(Long id);
-
+    String update(Long id , OrderPojo orderpojo);
 
 }

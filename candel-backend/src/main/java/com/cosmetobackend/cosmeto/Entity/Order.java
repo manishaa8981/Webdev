@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
+
 @Entity
 @Table(name="orders")
 @Getter
@@ -18,13 +21,25 @@ public class Order {
     @JoinColumn(name="user_id")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name="product_id")
-    private Product productId;
+    @Column (name="order_items")
+    private String orderItems;
 
-    @Column(name="sales_quantity", nullable=false)
-    private Integer salesQuantity;
+    @Column(name="pay_via")
+    private String payVia;
+
+    @Column(name = "pick_up_otion")
+    private String pickUpOption;
 
     @Column(name="total_price", nullable = false)
     private Integer totalPrice;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "phone_number")
+    private Long phoneNumber;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "order_date_time")
+    private Date orderDateTime;
 }

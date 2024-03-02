@@ -103,7 +103,7 @@ const Cart = () => {
                                 return (
                                     <div className={"items-info"} key={i?.id}>
                                         <div className={"title"}>
-                                            <h3>{i?.product?.productName}</h3>
+                                            <h3>{i?.product?.name}</h3>
                                         </div>
 
                                         <div className={"price"}>
@@ -140,7 +140,7 @@ const Cart = () => {
                 <div className={"CheckOut-Container"}>
                     <div className={"cart-total"}>
                         <h3> Cart Total: Rs. {cartTotal}</h3>
-                        <Link to={`/payment/${cartTotal}`}>
+                        <Link to={"/"}>
                             <button className={"checkout-button"}>CHECKOUT</button>
                         </Link>
                     </div>

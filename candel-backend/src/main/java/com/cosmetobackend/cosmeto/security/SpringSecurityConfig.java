@@ -1,8 +1,6 @@
 package com.cosmetobackend.cosmeto.security;
-
-
-import com.cosmetobackend.cosmeto.config.PasswordEncoderUtil;
 import com.cosmetobackend.cosmeto.Service.Impl.CustomUserDetailService;
+import com.cosmetobackend.cosmeto.config.PasswordEncoderUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -40,29 +39,24 @@ public class SpringSecurityConfig {
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity)
             throws Exception {
-        httpSecurity
-                .csrf().disable()
+        httpSecurity.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/login",
-                        "/system-user/**",
-                        "/dashboard/**",
-                        "/tour",
-                        "/tour/**",
-                        "/purchased-tours/**",
-                        "/tours/**",
-                        "category",
-                        "category/**",
-                        "/bike/**",
-                        "/booking/**",
+                .requestMatchers(
                         "/authenticate",
-                        "/authenticate/**",
-                        "/recover/**",
-                        "/system-user/new-password")
+                        "/authenticate/",
+                        "/user/** ",
+                        "/category/** ",
+                        "/cart/",
+                        "/cart/**",
+                        "/product/",
+                        "/product/**",
+                        "/user/new-password","/email/reset-password")
                 .permitAll()
-                .requestMatchers("/admin/**","/dashboard/**")
-                .hasAuthority("Admin")
+                .requestMatchers("/admin/**")
+                .hasAuthority("/admin")
                 .anyRequest()
-                .authenticated()
+                .permitAll()
+//                .authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -1,11 +1,12 @@
 package com.cosmetobackend.cosmeto.Entity;
 
-
+import com.cosmetobackend.cosmeto.Entity.Category;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.w3c.dom.Text;
 
-
+@SuppressWarnings("JpaAttributeTypeInspection")
 @Entity
 @Table(name="products")
 @Getter
@@ -13,22 +14,29 @@ import lombok.Setter;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @SequenceGenerator(name = "product_seq_gen", sequenceName = "product_id_seq", allocationSize = 1)
+    @GeneratedValue(generator = "product_seq_gen", strategy = GenerationType.SEQUENCE)
+    private Long id;
 
-    @Column(name="product_name", nullable=false , unique = true)
-    private String productName;
+    @Column(name="Product_name", nullable=false,unique = true)
+    private String name;
 
-    @Column(name="description", nullable=false)
+    @Column(name="description", columnDefinition = "TEXT")
     private String productDescription;
 
-    @Column(name="product_price", nullable=false)
-    private Integer productPrice;
+    @Column(name="old_price", nullable=false)
+    private Integer old_price;
 
-    @Column(name="product_image", nullable = false)
-    private String productImage;
+    @Column( name="new_price",insertable = false, updatable = false)
+    private Integer new_price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_id", referencedColumnName = "id")
+
+    @Column( name="image", nullable = false)
+    private String image ;
+
+
+    @ManyToOne
+    @JoinColumn(name="category_id", nullable = false)
     private Category category;
+
 }

@@ -1,11 +1,10 @@
 package com.cosmetobackend.cosmeto.Service.Impl;
-
 import com.cosmetobackend.cosmeto.Entity.User;
 import com.cosmetobackend.cosmeto.Pojo.AuthenticateRequest;
-import com.cosmetobackend.cosmeto.Pojo.AuthenticateResponse;
+import com.cosmetobackend.cosmeto.Pojo.AuthenticationResponse;
 import com.cosmetobackend.cosmeto.Repo.UserRepository;
-import com.cosmetobackend.cosmeto.security.JwtService;
 import com.cosmetobackend.cosmeto.Service.AuthenticateService;
+import com.cosmetobackend.cosmeto.security.JwtService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,7 +21,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
     private final JwtService jwtService;
 
     @Override
-    public AuthenticateResponse authenticate(AuthenticateRequest authenticateRequest) {
+    public AuthenticationResponse authenticate(AuthenticateRequest authenticateRequest) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authenticateRequest.getEmail(), authenticateRequest.getPassword()
@@ -35,7 +34,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         UserDetails userDetails = user;
 
         String jwtToken = jwtService.generateToken(userDetails);
-        return AuthenticateResponse.builder().token(jwtToken)
-                .userId(user.getId()).email(user.getEmail()).build();
+        return AuthenticationResponse.builder().token(jwtToken).id(user.getId()).build();
     }
 }
+

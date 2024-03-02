@@ -1,6 +1,4 @@
 package com.cosmetobackend.cosmeto.Repo;
-
-
 import com.cosmetobackend.cosmeto.Entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

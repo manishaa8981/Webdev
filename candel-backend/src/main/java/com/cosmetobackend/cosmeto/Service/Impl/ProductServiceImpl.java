@@ -1,5 +1,4 @@
 package com.cosmetobackend.cosmeto.Service.Impl;
-
 import com.cosmetobackend.cosmeto.Entity.Category;
 import com.cosmetobackend.cosmeto.Entity.Product;
 import com.cosmetobackend.cosmeto.Pojo.ProductPojo;
@@ -7,7 +6,6 @@ import com.cosmetobackend.cosmeto.Repo.CategoryRepository;
 import com.cosmetobackend.cosmeto.Repo.ProductRepository;
 import com.cosmetobackend.cosmeto.Service.ProductService;
 import com.cosmetobackend.cosmeto.util.ImageToBase64;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,55 +23,50 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
-
-    private final String UPLOAD_DIRECTORY = new StringBuilder().append(System.getProperty("user.dir")).append("/Candel-Images/Images").toString();
+    private final String UPLOAD_DIRECTORY = new StringBuilder().append(System.getProperty("user.dir")).append("/Canvas-Images/Product-Images").toString();
     ImageToBase64 imageToBase64 = new ImageToBase64();
-
-
     @Override
-    public String save(ProductPojo productPojo) throws IOException {
+    public void save(ProductPojo productPojo) throws IOException {
         Product product= new Product();
 
         if (productPojo.getId() != null) {
             product = productRepository.findById(productPojo.getId()).get();
         }
 
-        product.setProductName(productPojo.getProductName());
-        product.setProductPrice(productPojo.getProductPrice());
-        product.setProductDescription(productPojo.getProductDescription());
+        Category category=categoryRepository.findById(productPojo.getCategory()).get();
 
-
-        Category category = categoryRepository.findById(Long.valueOf(productPojo.getCategory()))
-                .orElseThrow(() -> new EntityNotFoundException("Category not found with ID: " + productPojo.getCategory()));
-
-        if (productPojo.getProductImage() != null) {
-            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, productPojo.getProductImage().getOriginalFilename());
-            Files.write(fileNameAndPath, productPojo.getProductImage().getBytes());
-        }
-        product.setProductImage(productPojo.getProductImage().getOriginalFilename());
         product.setCategory(category);
+        product.setOld_price(productPojo.getOld_price());
+        product.setNew_price(productPojo.getNew_price());
+        if (productPojo.getImage() != null) {
+            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, productPojo.getImage().getOriginalFilename());
+            Files.write(fileNameAndPath, productPojo.getImage().getBytes());
+        }
+        product.setImage(productPojo.getImage().getOriginalFilename());
+
+        product.setProductDescription(productPojo.getProductDescription());
+        product.setName(productPojo.getName());
 
         productRepository.save(product); // insert query
-        return "Product Saved Successfully";
+
     }
 
     @Override
-    public List<Product> getAll() {
+    public List<Product> getAll(){
         List<Product> products = productRepository.findAll();
         products = products.stream().map(product -> {
-            product.setProductImage(imageToBase64.getImageBase64("/Images/" + product.getProductImage()));
+            product.setImage(imageToBase64.getImageBase64("/Product-Images/" + product.getImage()));
             return product;
         }).collect(Collectors.toList());
-        return products;// select * from users
+        return products;
     }
-
     @Override
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
         productRepository.deleteById(id); // delete from users where id =?1
     }
 
     @Override
-    public Optional<Product> getById(Integer id) {
+    public Optional<Product> getById(Long id) {
         return productRepository.findById(id);
     }
 

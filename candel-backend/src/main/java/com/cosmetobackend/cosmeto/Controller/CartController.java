@@ -1,5 +1,4 @@
 package com.cosmetobackend.cosmeto.Controller;
-
 import com.cosmetobackend.cosmeto.Entity.Cart;
 import com.cosmetobackend.cosmeto.Pojo.CartPojo;
 import com.cosmetobackend.cosmeto.Pojo.CartUpdatePojo;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
 @RequiredArgsConstructor
 @RequestMapping("/cart")
 public class CartController {
@@ -36,8 +34,11 @@ public class CartController {
 
     @PutMapping("/updateQuantity")
     public ResponseEntity<String> updateQuantity(@RequestBody CartUpdatePojo cartUpdatePojo) {
+//        try {
         cartService.updateQuantity(cartUpdatePojo.getId(), cartUpdatePojo.getQuantity());
         return ResponseEntity.ok("Quantity updated successfully");
-
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body("Failed to update quantity");
+//        }
     }
 }

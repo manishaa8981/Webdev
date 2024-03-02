@@ -1,6 +1,5 @@
 package com.cosmetobackend.cosmeto.config;
-
-import com.cosmetobackend.cosmeto.Entity.EmailCredential;
+import com.cosmetobackend.cosmeto.Entity.EmailCredentials;
 import com.cosmetobackend.cosmeto.Repo.EmailCredentialRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -13,23 +12,20 @@ import java.util.Properties;
 @Configuration
 @RequiredArgsConstructor
 public class EmailConfiguration {
-
     private final EmailCredentialRepo emailCredRepo;
 
     @Bean
     public JavaMailSender getJavaMailSender() throws Exception {
         try {
-            EmailCredential emailCredentials = emailCredRepo.findOneByActive();
+            EmailCredentials emailCredentials = emailCredRepo.findOneByActive();
             if (emailCredentials != null) {
                 JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-
                 Properties props = new Properties();
                 props.put("mail.transport.protocol", emailCredentials.getProtocol());
                 props.put("mail.smtp.auth", "true");
                 props.put("mail.smtp.starttls.enable", "true");
                 props.put("mail.debug", "true");
                 mailSender.setJavaMailProperties(props);
-
                 mailSender.setHost(emailCredentials.getHost());
                 mailSender.setPort(Integer.valueOf(emailCredentials.getPort()));
                 mailSender.setUsername(emailCredentials.getEmail());
@@ -43,5 +39,5 @@ public class EmailConfiguration {
             return null;
         }
     }
-}
 
+}
